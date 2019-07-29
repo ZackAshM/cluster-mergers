@@ -39,7 +39,7 @@ using namespace std;
 // this also includes the Body struct
 #define scale 4.5*Rcl		// ly, length of tree's root node
 #define G 1.56700e-9		// ly^3 Msun^-1 (100 yr)^-2, gravitational constant
-#include "QuadTree.h"
+#include "QuadTreeClass.h"
 
 
 vector<Vector3D> forces;

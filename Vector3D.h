@@ -8,9 +8,11 @@
 
 #ifndef _VECTOR
 #define _VECTOR
+
+using namespace std;
+#include <iostream>
 #include <cmath>
 #include <string>
-
 
 class Vector3D
 {

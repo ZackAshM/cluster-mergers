@@ -1,21 +1,10 @@
-# makefile for c++ programs
+# makefile for Cluster Merger program
 #
 # to create binary executable "area" below, type "make area"
 #
-# If you don't have a "bin" folder for binaries, create it first
-#
-# the "#" is the comment character for makefile scripts
-#
-# this section sets some variables/alaises
-# The syntax "$(HOME)" gives substitution of the variable HOME
-# change "your_username" below to appropriate name
-# ** for Mac users, this will probably be /Users/[yourname] instead of /home **
-#
 HOME = /home/zackashm
-#HOME =/Users/gorham   # uncomment this for the mac
 BIN  =  $(HOME)/bin
-LOCALDIR = $(HOME)/work
-HERE = $(LOCALDIR)/refinal
+HERE = $(HOME)/'Cluster Mergers'
 #
 # this section for compiler flags and link libraries
 # -O3 gives a high degree of code optimization, -W gives all warnings
@@ -50,18 +39,18 @@ CC      = g++
 # >(target runs)
 
 # Main commands -------------------
-main: VecFRK4 cluster
-	$(CC) $(GFLAGS) cluster_generator.o VecFRK4.o main.cpp -o $(HERE)/main $(LIBS)
+main: VecFRK4 cluster gravity
+	$(CC) $(GFLAGS) gravity.o cluster_generator.o VecFRK4.o main.cpp -o $(HERE)/main $(LIBS)
 gen_clust: cluster
 	$(CC) $(GFLAGS) cluster_generator.o cluster.cpp -o $(HERE)/cluster
-	
 
 # Dependencies --------------------
 cluster: cluster_generator.cpp
 	$(CC) -c cluster_generator.cpp
 VecFRK4: VecFRK4.cpp
 	$(CC) -c VecFRK4.cpp
-	
+gravity: gravity.cpp
+	$(CC) -c gravity.cpp
 
 # Test Programs -------------------
 single: VecFRK4 cluster
